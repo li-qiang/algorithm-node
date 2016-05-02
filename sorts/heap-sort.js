@@ -13,8 +13,7 @@ class HeapSort {
     }
 
     compareWith(first, second) {
-        if (second >= this.length) return first;
-        return this.list[second] > this.list[first] ? second : first;
+        return second < this.length && this.list[second] > this.list[first] ? second : first;
     }
 
     sortList() {
@@ -42,9 +41,7 @@ class HeapSort {
     }
 
     get result() {
-        if (this.length > 1) {
-            this.sortList();
-        }
+        if (this.length > 1) this.sortList();
         return this.list;
     }
 }
