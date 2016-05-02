@@ -1,6 +1,5 @@
 "use strict";
 
-
 let change = (arr, i, j) => {
     let first = arr[i];
     arr[i] = arr[j];
@@ -8,10 +7,10 @@ let change = (arr, i, j) => {
 };
 
 class QuickSortCore {
-    constructor(list) {
-        this.prevIndex = 0;
-        this.nextIndex = list.length - 1;
-        this.baseIndex = list.length - 1;
+    constructor(list, start, end) {
+        this.prevIndex = start;
+        this.nextIndex = end;
+        this.baseIndex = end;
         this.reversed = false;
         this.list = list;
     }
@@ -30,14 +29,6 @@ class QuickSortCore {
 
     get isContinue() {
         return this.reversed ? this.base < this.currentItem : this.base > this.currentItem;
-    }
-
-    get prevList() {
-        return this.list.slice(0, this.baseIndex);
-    }
-
-    get nextList() {
-        return this.list.slice(this.baseIndex + 1);
     }
 
     increaseIndex() {
@@ -61,39 +52,29 @@ class QuickSort {
     }
 
     get result() {
-        return this.sort(this.list);
+        return this.sort(this.list, 0, this.list.length - 1);
     }
 
-    sort(list) {
-        if (list.length == 1 || list.length == 0)  return list;
-
-        if (list.length == 2) {
-            if (list[0] > list[1]) change(list, 0, 1);
-            return list;
-        }
-
-        return this.actuallySort(list);
+    sort(list, start, end) {
+        if (end == start) return list;
+        return this.actuallySort(list, start, end);
     }
 
-    actuallySort(list) {
-        let core = new QuickSortCore(list);
+    actuallySort(list, start, end) {
+        let core = new QuickSortCore(list, start, end);
 
-        list.forEach(() => {
+        for (let i = start; i <= end; i++) {
             if (!core.isContinue) core.change();
             core.increaseIndex();
-        });
+        }
 
-        return this.subSort(core);
+        return this.subSort(core, start, end);
     }
 
-    subSort(core) {
-        var prev = core.prevList;
-        var next = core.nextList;
-
-        if (prev.length > 1) prev = this.sort(prev);
-        if (next.length > 1) next = this.sort(next);
-
-        return prev.concat([core.base]).concat(next);
+    subSort(core, start, end) {
+        if (core.baseIndex - start > 1) this.sort(core.list, start, core.baseIndex - 1);
+        if (end - core.baseIndex > 1) this.sort(core.list, core.baseIndex + 1, end);
+        return this.list;
     }
 
 }
