@@ -9,33 +9,33 @@ describe("Merge Sort", () => {
 
     describe('When elements are little', () => {
         it("should not raise error when no elements", () => {
-            var quickSorter = new MergeSort([]);
-            expect(quickSorter.result).to.deep.equal([]);
+            var mergeSorter = new MergeSort([]);
+            expect(mergeSorter.result).to.deep.equal([]);
         });
         it("should not raise error when only 1 elements", () => {
-            var quickSorter = new MergeSort([1]);
-            expect(quickSorter.result).to.deep.equal([1]);
+            var mergeSorter = new MergeSort([1]);
+            expect(mergeSorter.result).to.deep.equal([1]);
         });
         it("should sort correctly when only 2 elements", () => {
-            var quickSorter = new MergeSort([2, 1]);
-            expect(quickSorter.result).to.deep.equal([1, 2]);
+            var mergeSorter = new MergeSort([2, 1]);
+            expect(mergeSorter.result).to.deep.equal([1, 2]);
         });
     });
 
     it("should actuallySort right", () => {
         let arr = [4, 2, 7, 1, 6, 8, 9, 5, 3];
 
-        var quickSorter = new MergeSort(arr);
+        var mergeSorter = new MergeSort(arr);
 
-        expect(quickSorter.result).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+        expect(mergeSorter.result).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     });
 
     it('should sort correctly when some elements are equal', () => {
         let arr = [4, 2, 1, 4, 3, 5, 3];
 
-        var quickSorter = new MergeSort(arr);
+        var mergeSorter = new MergeSort(arr);
 
-        expect(quickSorter.result).to.deep.equal([1, 2, 3, 3, 4, 4, 5]);
+        expect(mergeSorter.result).to.deep.equal([1, 2, 3, 3, 4, 4, 5]);
     });
 
     it('should handle any random array', () => {
