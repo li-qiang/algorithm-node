@@ -7,7 +7,7 @@ class HeapSort {
     }
 
     buildMaxHeap() {
-        for (let i = Math.floor(this.length / 2); i >= 0; i--) {
+        for (let i = this.length >> 1; i >= 0; i--) {
             this.maxHeapFor(i);
         }
     }
