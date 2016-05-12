@@ -14,7 +14,7 @@ class ShellSort {
     }
 
     insertionSort(j, gap) {
-        for (let index = j - gap; index >= 0 & this.list[index] > this.list[index + gap]; index -= gap) this.change(index + gap, index);
+        for (let index = j - gap; index >= 0 && this.list[index] > this.list[index + gap]; index -= gap) this.change(index + gap, index);
     }
 
     change(i, j) {

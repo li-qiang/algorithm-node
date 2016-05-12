@@ -6,6 +6,7 @@ let QuickSort = require('../sorts/quick-sort');
 let HeapSort = require('../sorts/heap-sort');
 let MergeSort = require('../sorts/merge-sort');
 let ShellSort = require('../sorts/shell-sort');
+let BubbleSort = require('../sorts/bubble-sort');
 
 describe('Compare', () => {
 
@@ -37,5 +38,11 @@ describe('Compare', () => {
         let shellSorter = new ShellSort(originArr);
 
         expect(shellSorter.result).to.deep.equal(sortedArr);
+    });
+
+    it('sort by bubble sort', () => {
+        let bubbleSorter = new BubbleSort(originArr);
+
+        expect(bubbleSorter.result).to.deep.equal(sortedArr);
     });
 });
