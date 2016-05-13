@@ -8,7 +8,7 @@ let Sorters = ['bubble', 'heap', 'merge', 'quick', 'shell'].map((name) => requir
 
 Sorters.forEach((Sorter) => {
 
-    describe(`${Sorter.name} Sort`, () => {
+    describe(Sorter.name, () => {
 
         describe('When elements are little', () => {
 
@@ -50,7 +50,6 @@ Sorters.forEach((Sorter) => {
             expect(sorter.result).to.deep.equal(actualArr);
         });
     });
-
 
 });
 
