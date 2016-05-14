@@ -4,7 +4,7 @@ let expect = require('chai').expect;
 
 let loopTimes = require('./loop-times');
 
-let Sorters = ['bubble', 'heap', 'merge', 'quick', 'shell', 'selection'].map((name) => require(`../sorts/${name}-sort`));
+let Sorters = ['bubble', 'heap', 'merge', 'quick', 'shell', 'insertion'].map((name) => require(`../sorts/${name}-sort`));
 
 Sorters.forEach((Sorter) => {
 

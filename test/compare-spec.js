@@ -7,7 +7,7 @@ let HeapSort = require('../sorts/heap-sort');
 let MergeSort = require('../sorts/merge-sort');
 let ShellSort = require('../sorts/shell-sort');
 let BubbleSort = require('../sorts/bubble-sort');
-let SelectionSort = require('../sorts/selection-sort');
+let InsertionSort = require('../sorts/insertion-sort');
 
 describe('@compare', () => {
 
@@ -47,9 +47,9 @@ describe('@compare', () => {
         expect(bubbleSorter.result).to.deep.equal(sortedArr);
     });
 
-    it('sort by selection sort @slow', () => {
-        let selectionSorter = new SelectionSort(originArr);
+    it('sort by insertion sort @slow', () => {
+        let insertionSorter = new InsertionSort(originArr);
 
-        expect(selectionSorter.result).to.deep.equal(sortedArr);
+        expect(insertionSorter.result).to.deep.equal(sortedArr);
     });
 });
